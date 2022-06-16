@@ -1,3 +1,4 @@
+import 'dotenv/config' 
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors'
@@ -7,7 +8,7 @@ import movieRoute from "./routes/movie"
 const app = express()
 const port = 5000
 // const connectionURL = "mongodb://localhost:27017/movie"
-const connectionURL = "mongodb+srv://mydbuser1:glZXT0NZWuIppXg6@cluster0.pas4h.mongodb.net/movie?retryWrites=true&w=majority"
+const connectionURL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.PASSWORD}@cluster0.pas4h.mongodb.net/movie?retryWrites=true&w=majority`
 
 app.use(cors());
 app.use(express.json());
